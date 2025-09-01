@@ -1,0 +1,146 @@
+import java.lang.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+import static javax.swing.JOptionPane.showMessageDialog;
+
+
+class ManLogin extends JFrame implements MouseListener, ActionListener
+{
+	
+	  JLabel  userid, password, title2, imgLabel;
+	  JButton btnlog;
+	  JTextField usertext; 
+	  JPasswordField passwordtext;
+	  JPanel panel;
+	  ImageIcon icon, bg;
+	   
+	  
+	  
+	  public ManLogin () 
+	{
+		  
+		  super ("Manager Login Page ");
+		  this.setSize(800,600);
+		  
+		  panel = new JPanel();
+		  panel.setLayout(null);
+		  
+		  // Imageicon
+		  
+		  icon = new ImageIcon (getClass().getResource("image3.png"));
+		  this.setIconImage(icon.getImage());
+		  
+		  
+		  
+		
+		  
+		  
+	//TITLE DECLARATION...::
+
+	
+		  title2 = new JLabel ("Sign In Here ");
+		  title2.setBounds(280,160, 200,50);
+		  title2.setForeground(Color.WHITE);
+		  panel.add(title2);
+		  
+		
+		  
+		  
+		  userid = new JLabel("Phone Number : ");
+		  userid.setBounds(280,250, 100,20);
+		  userid.setForeground(Color.WHITE);
+		  panel.add(userid);
+		  
+		  
+		  usertext = new JTextField();
+		  usertext.setBounds(420,250, 100,20);
+		  panel.add(usertext);
+		  
+		  
+		  password = new JLabel("Password : ");
+		  password.setBounds(280,300, 100,20);
+		  password.setForeground(Color.WHITE);
+		  panel.add(password);
+		  
+		   passwordtext = new JPasswordField();
+		  passwordtext.setBounds(420,300, 100,20);
+		  panel.add(passwordtext);
+		  
+		  btnlog = new JButton("Login ");
+		  btnlog.setBounds(280,350, 100,20);
+		 
+		  btnlog.addMouseListener(this);
+		  btnlog.addActionListener(this);
+          panel.add(btnlog);
+		  
+
+		  
+		  // Background Image
+		  
+		  bg = new ImageIcon(getClass().getResource("image2.jpg"));
+		  imgLabel = new JLabel(bg);
+		  imgLabel.setBounds(0,0, 800,600);
+		  panel.add(imgLabel);
+		  
+		  
+          
+		  this.add(panel);
+    
+    }
+	
+	      public void mouseClicked (MouseEvent me){}
+		  public void mousePressed (MouseEvent me){}
+		  public void mouseReleased(MouseEvent me){}
+		  public void mouseEntered(MouseEvent me){}
+		  public void mouseExited (MouseEvent me){}
+		  
+		 
+		  
+		  
+		  public void actionPerformed(ActionEvent ae)
+		  {
+			  String cmd=ae.getActionCommand();
+			  
+			  
+			  if (btnlog.getText().equals(cmd))
+			  {
+				  
+				  String s1 = usertext.getText();
+				  String s2 = passwordtext.getText();
+			
+	          if ((s1.equals("01301332892") && s2.equals("2069")))
+		        {
+			  
+			    Manager m = new Manager();
+		        m.setVisible(true);
+				this.setVisible(false);
+			  
+			  
+			  
+		        }
+			   else{
+				 
+				 showMessageDialog(null, "Incorrect phone num & Password");
+			       }
+	
+			  }
+			  else {}
+	
+	
+	
+	
+	
+	
+	      }
+	
+
+		  
+		  
+
+
+
+
+}//class
